@@ -1,0 +1,134 @@
+/* Reset default padding, margin, and font */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif; /* Setting default font family */
+    font-family: 'Poppins', sans-serif; /* Overriding font family for a specific font */
+    background-image: image('img/image.jpeg'); /* Setting background image */
+}
+
+/* Styling for navigation */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:transparent;
+    color: black;
+    padding: 19px 12px;
+    font-weight: bold;
+}
+
+/* Styling for unordered list inside navigation */
+ul {
+    display: flex;
+}
+
+/* Styling for list items inside unordered list */
+ul li {
+    list-style: none;
+    padding: 0 13px;
+}
+
+/* Styling for anchor tags inside list items */
+ul li a{
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+/* Hover effect for anchor tags */
+ul >li> a:hover{
+    color: rgb(192, 189, 205);
+}
+
+/* Styling for main content */
+main{
+    min-height: 100vh; 
+}
+
+/* Styling for logo */
+.logo img{
+    width: 15px;
+    filter: invert(1); /* Invert image color */
+}
+
+/* Styling for container */
+.container{ 
+    max-width: 80vw; /* Maximum width for container */
+    margin: auto; /* Center aligning container */
+    padding: 9px 25px; /* Padding for container */
+}
+
+/* Styling for heading inside container */
+.container h1{
+    padding: 12px 0; /* Padding for heading */
+}
+
+/* Styling for text input */
+input[type='text']{
+    min-width: 23vw; /* Minimum width for text input */
+    padding: 3px 12px; /* Padding for text input */
+    border: 2px solid black; /* Border for text input */
+    border-radius: 4px; /* Border radius for text input */
+    font-size: 20px; /* Font size for text input */
+}
+
+/* Styling for button */
+.btn{
+    background: black; /* Background color for button */
+    color: white; /* Text color for button */
+    padding: 9px 12px; /* Padding for button */
+    border: 1px solid gray; /* Border for button */
+    border-radius: 6px; /* Border radius for button */
+    cursor: pointer; /* Cursor style for button */
+}
+
+/* Styling for first letter of each div inside result container */
+#resultCont div::first-letter{
+    text-transform: uppercase; /* Transforming first letter to uppercase */
+}
+
+/* Styling for footer */
+footer{
+    font-size: 12px; /* Font size for footer */
+    background-color: transparent; /* Background color for footer */
+    color: black; /* Text color for footer */
+    display: flex; /* Flex layout for footer */
+    padding: 12px; /* Padding for footer */
+    display: flex; /* Display style for footer */
+    justify-content: center; /* Center aligning content inside footer */
+    align-items: center; /* Vertical aligning content inside footer */
+}
+
+/* Media query for screen size less than or equal to 600px */
+@media only screen and (max-width: 600px) {
+
+    /* Styling for container at smaller screen sizes */
+    .container{
+        font-size: 12px; /* Font size for container */
+    }
+
+    /* Full width for text input at smaller screen sizes */
+    input[type='text'] {
+        width: 100%; /* Full width for text input */
+    }
+
+    /* Flex direction change for navigation at smaller screen sizes */
+    nav{
+        flex-direction: column; /* Stack navigation items vertically */
+    }
+    /* Adjustments for logo at smaller screen sizes */
+    .logo{
+        padding: 6px 0; /* Padding for logo */
+        font-size: 12px; /* Font size for logo */
+    }
+    /* Adjustments for logo span at smaller screen sizes */
+    .logo span{
+        font-size: 20px; /* Font size for logo span */
+    }
+    /* Adjustments for logo image at smaller screen sizes */
+    .logo img{
+        width: 15px; /* Width for logo image */
+        filter: invert(1); /* Invert image color */
+    }
+}

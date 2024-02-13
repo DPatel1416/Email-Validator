@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the page -->
+    <title>iValidate - Email Validator for your Business</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Header section -->
+    <header>
+        <!-- Navigation bar -->
+        <nav>
+            <!-- Logo -->
+            <div class="logo">
+                <!-- Image for the logo -->
+                <img src="img/email.svg" alt="email svg">
+            </div>
+            <!-- List of navigation links -->
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/">About</a></li>
+                <li><a href="/">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content section -->
+    <main>
+        <!-- First container for email validation form -->
+        <div class="container">
+            <!-- Heading for the form -->
+            <h1>Enter your email to validate</h1>
+            <!-- Form for submitting email -->
+            <form action="/submit" method="post">
+                <!-- Input field for entering email -->
+                <input placeholder="Enter your email to validate" type="text" id="username" name="username" required>
+                <br><br>
+                <!-- Submit button for the form -->
+                <input id="submitBtn" class="btn" type="submit" value="Submit">
+            </form>
+        </div>
+
+        <!-- Second container for displaying validation results -->
+        <div class="container">
+            <!-- Heading for validation results -->
+            <h2>Your Results</h2>
+            <!-- Container to display validation results -->
+            <div id="resultCont">
+                Your results will show here
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+        <!-- Copyright information -->
+        Copyright | Your Brand | All Rights reserved
+    </footer>
+
+    <!-- Script tag to link external JavaScript file -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
