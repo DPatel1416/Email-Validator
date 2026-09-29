@@ -94,14 +94,23 @@ export function createServer({ apiKey = '', fetchImpl = fetch, timeoutMs = 15000
   });
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
+// Vercel imports the default server; only local CLI startup should bind a port.
+const isLocalEntry = !process.env.VERCEL && process.argv[1] &&
+  import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href;
+
+if (isLocalEntry) {
   const envPath = path.join(root, '.env');
   if (existsSync(envPath)) process.loadEnvFile(envPath);
+}
+
+const server = createServer({ apiKey: process.env.EMAILVALIDATION_API_KEY || '' });
+server.requestTimeout = 20000;
+server.headersTimeout = 10000;
+export default server;
+
+if (isLocalEntry) {
   const port = Number(process.env.PORT || 4173);
   const host = process.env.HOST || '127.0.0.1';
-  const server = createServer({ apiKey: process.env.EMAILVALIDATION_API_KEY || '' });
-  server.requestTimeout = 20000;
-  server.headersTimeout = 10000;
   server.on('error', () => { console.error('Server could not start. Check HOST, PORT, and whether the port is already in use.'); process.exitCode = 1; });
   server.listen(port, host, () => console.log(`iValidate running at http://${host}:${port}`));
 }

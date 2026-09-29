@@ -1,6 +1,22 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { createServer } from '../server.js';
+import server, { createServer } from '../server.js';
+import { Server } from 'node:http';
+
+test('Vercel entry exports an unbound HTTP server that serves the app', async t => {
+  assert.ok(server instanceof Server);
+  assert.equal(server.listening, false);
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  t.after(() => new Promise(resolve => { server.close(resolve); server.closeAllConnections(); }));
+  const base = `http://127.0.0.1:${server.address().port}`;
+  for (const asset of ['/', '/css/style.css', '/js/script.js', '/img/favicon.svg']) {
+    assert.equal((await fetch(base + asset)).status, 200);
+  }
+  const invalid = await fetch(base + '/api/validate', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: 'invalid' })
+  });
+  assert.equal(invalid.status, 400);
+});
 
 async function fixture(t, options = {}) {
   const server = createServer(options);

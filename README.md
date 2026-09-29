@@ -33,6 +33,14 @@ Run `npm test`. Tests use a fake provider and do not consume API credits. They c
 
 ## Deployment
 
+### Vercel
+
+The root `server.js` exports an HTTP server for Vercel's Node.js runtime. Importing it does not start a local listener or load `.env`. `vercel.json` includes the HTML, CSS, JavaScript, and image files in the function bundle; `.vercelignore` excludes local secrets.
+
+Set `EMAILVALIDATION_API_KEY` in the Vercel project's Environment Variables for Production and Preview as needed. Your local `.env` is not uploaded. Redeploy after changing the code or environment variables. No custom build command or output directory is required for this Node server.
+
+The `Invalid export found ... default export must be a function or server` error means an older entry point without the default export is deployed. Deploy the updated `server.js` and configuration together.
+
 Deploy as a Node application, not a static site. Set `EMAILVALIDATION_API_KEY` in the hosting provider’s secret/environment settings, set `HOST=0.0.0.0` where required, and use the supplied `PORT`. Start with `npm start` behind HTTPS.
 
 The included limit is 20 attempts per minute per socket IP, in memory. It resets on restart; behind a proxy it may be shared by visitors. It does not trust forwarded IP headers. For a public deployment, configure platform-level quota controls and abuse protection; hiding the key alone does not prevent visitors from calling the public validation endpoint. Multi-instance deployments need a shared limiter.
