@@ -5,66 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#eeeee8">
   <meta name="description" content="Inspect email format, domain records, and mailbox deliverability with iValidate.">
-  <title>iValidate — Check before you send.</title>
+  <title>iValidate</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="header">
     <a class="brand" href="./" aria-label="iValidate home"><span class="brand-mark" aria-hidden="true">iV<span>↗</span></span>iValidate</a>
-    <nav aria-label="Main navigation"><a class="nav-active" href="#validator">01 / Validator</a><a href="#how-it-works">02 / Under the hood</a></nav>
-    <a class="header-link" href="#validator">CHECK AN ADDRESS <span aria-hidden="true">↗</span></a>
+    <span class="header-caption">CHECK BEFORE YOU SEND.</span>
+    <button class="help-button" type="button" id="helpButton">Result guide <span aria-hidden="true">↗</span></button>
   </header>
   <main>
-    <section class="intro" aria-labelledby="page-title">
-      <div class="intro-copy">
-        <div class="eyebrow"><span class="status-dot"></span> EMAIL INTELLIGENCE / NO GUESSWORK</div>
-        <h1 id="page-title">CHECK<br>BEFORE<br>YOU <span>SEND.</span></h1>
-        <div class="intro-bottom"><span class="intro-arrow" aria-hidden="true">↳</span><p>Behind every address is a signal.<br>Find out if it’s worth the send.</p></div>
-      </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="art-top"><span>ADDRESS ANATOMY</span><span>FIG. 001 ↗</span></div>
-        <div class="address-sculpture"><div class="sculpture-ring ring-one"></div><div class="sculpture-ring ring-two"></div><div class="sculpture-ring ring-three"></div><span class="sculpture-at">@</span><span class="cross cross-one">+</span><span class="cross cross-two">+</span></div>
-        <div class="art-coordinate">LOCAL PART <span>→</span> DOMAIN <span>→</span> MAILBOX</div>
-        <div class="art-bottom"><span>ONE ADDRESS.<br>MULTIPLE SIGNALS.</span><span class="art-barcode"></span></div>
-      </div>
-    </section>
-    <div class="workspace-label"><span><span class="status-dot"></span> THE VALIDATION DESK</span><span>INPUT → ANALYSIS → CLARITY</span></div>
+    <section class="intro" aria-labelledby="page-title"><div><div class="eyebrow"><span class="status-dot"></span> EMAIL INTELLIGENCE</div><h1 id="page-title">Less guesswork. <span>Better sends.</span></h1></div><p>Check the address.<br>Understand the signals.</p></section>
     <section id="validator" class="workspace" aria-label="Email validation workspace">
       <div class="input-panel">
         <div class="section-kicker">01 / INPUT</div>
-        <h2>Who’s on the<br>other side?</h2>
-        <p class="panel-description">Start with an address. We’ll check the details.</p>
+        <h2>Check an email.</h2>
+        <p class="panel-description">One address. A clearer idea of where it leads.</p>
         <form id="validationForm">
           <label for="username">EMAIL ADDRESS</label>
           <div class="input-wrap"><span aria-hidden="true">↳</span><input placeholder="you@somewhere.com" type="email" id="username" name="email" autocomplete="email" spellcheck="false" required aria-describedby="inputHint"></div>
           <p class="input-hint" id="inputHint">Format, domain, and mailbox. All in one check.</p>
           <button id="submitBtn" class="primary-button" type="submit"><span>Validate email</span><span aria-hidden="true">↗</span></button>
         </form>
-        <div class="privacy-note"><span aria-hidden="true">⊡</span><p>No message sent. Just the facts.</p></div>
+        <div class="demo-row"><span>Want to see what you’ll get?</span><button id="demoButton" type="button">View sample report ↗</button></div><div class="privacy-note"><span aria-hidden="true">⊡</span><p>The address is sent to EmailValidation for analysis.</p></div>
       </div>
       <div class="results-panel">
         <div class="results-heading"><span class="section-kicker">02 / SIGNAL REPORT</span><span class="result-badge" id="resultBadge">Awaiting input</span></div>
         <div id="resultCont" role="status" aria-live="polite" aria-atomic="true">
           <div class="empty-state">
-            <div class="signal-display" aria-hidden="true"><span class="signal-axis">SIGNAL / —</span><svg viewBox="0 0 500 110" preserveAspectRatio="none"><path class="signal-baseline" d="M0 70H500"/><path class="signal-wave" d="M0 70H150L165 62 178 78 192 70H210L220 42 232 92 248 13 265 100 281 50 295 70H500"/></svg><span class="signal-end">○</span></div>
-            <div class="empty-copy"><span class="report-dash">—</span><h3>No address.<br>No assumptions.</h3><p>Your report starts with an email.<br>Enter one to reveal the signals.</p></div>
+            <div class="report-placeholder" aria-hidden="true"><span>@</span><div><i></i><i></i><i></i></div><b>?</b></div>
+            <div class="empty-copy"><span class="report-dash">—</span><h3>Your next send,<br>with more certainty.</h3><p>Your result will explain what passed,<br>what needs attention, and what to do next.</p></div>
             <div class="empty-tags"><span>FORMAT <b>—</b></span><span>DOMAIN <b>—</b></span><span>MAILBOX <b>—</b></span></div>
           </div>
         </div>
         <div class="results-footnote"><span class="status-dot"></span><span>EMAILVALIDATION ENGINE</span><span class="footnote-end">iV / 01</span></div>
       </div>
     </section>
-    <section class="how-section" id="how-it-works" aria-labelledby="how-title">
-      <div class="how-heading"><span class="section-kicker">UNDER THE HOOD</span><h2 id="how-title">An address is just<br>the beginning.</h2><p>Follow the signals, from the first<br>character to the receiving mailbox.</p></div>
-      <div class="feature-grid">
-        <article><div class="feature-top"><span>01</span><span aria-hidden="true">[Aa]</span></div><h3>The structure.</h3><p>Check the syntax. Catch formatting issues before an address makes it onto your list.</p><span class="feature-label">FORMAT VALIDATION <span>↗</span></span></article>
-        <article><div class="feature-top"><span>02</span><span aria-hidden="true">[↔]</span></div><h3>The destination.</h3><p>Inspect mail records and identify disposable providers. Get context on the domain.</p><span class="feature-label">DOMAIN INSPECTION <span>↗</span></span></article>
-        <article><div class="feature-top"><span>03</span><span aria-hidden="true">[✓]</span></div><h3>The possibility.</h3><p>Read mailbox signals and a quality score. Make your next send an informed one.</p><span class="feature-label">DELIVERABILITY SIGNALS <span>↗</span></span></article>
-      </div>
-    </section>
-    <div class="closing-note"><span>LESS BOUNCE.</span><span>MORE IMPACT. ↗</span></div>
-  </main>
-  <footer><a class="brand footer-brand" href="./">iValidate<span>®</span></a><p>KNOW BEFORE YOU SEND.</p><span>© <span id="year">2026</span> iVALIDATE</span></footer>
+    </main>
+  <footer><span>FORMAT / DOMAIN / MAILBOX</span><span>© <span id="year">2026</span> iValidate</span></footer>
+  <dialog id="guideDialog" aria-labelledby="guideTitle"><div class="dialog-heading"><h2 id="guideTitle">Read the signals.</h2><button id="closeGuide" type="button" aria-label="Close guide">×</button></div><label for="guideTopic">WHAT WOULD YOU LIKE TO KNOW?</label><select id="guideTopic"><option value="results">Delivery status</option><option value="score">Quality score</option><option value="checks">Individual checks</option><option value="privacy">Privacy</option></select><div id="guideContent"></div></dialog>
   <script src="js/script.js"></script>
 </body>
 </html>
